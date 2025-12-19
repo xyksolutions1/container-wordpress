@@ -1,8 +1,8 @@
-# nfrastack/container-nginx-php-fpm
+# nfrastack/container-wordpress
 
 ## About
 
-This repository will build a container image for running [Laravel](https://laravel.net/) applications either in a development or production capacity, including [Nginx](https://www.nginx.org) w/[PHP-FPM](https://php.net).
+This repository will build a container image for running [Wordpress](https://wordpress.org/). A Content Management System.
 
 ## Maintainer
 
@@ -38,15 +38,15 @@ This repository will build a container image for running [Laravel](https://larav
 
 ### Prebuilt Images
 
-Feature limited builds of the image are available on the [Github Container Registry](https://github.com/nfrastack/container-laravel/pkgs/container/container-laravel) and [Docker Hub](https://hub.docker.com/r/nfrastack/nginx-php-fpm).
+Feature limited builds of the image are available on the [Github Container Registry](https://github.com/nfrastack/container-wordpress/pkgs/container/container-wordpress) and [Docker Hub](https://hub.docker.com/r/nfrastack/nginx-php-fpm).
 
 To unlock advanced features, one must provide a code to be able to change specific environment variables from defaults. Support the development to gain access to a code.
 
 To get access to the image use your container orchestrator to pull from the following locations:
 
 ```
-ghcr.io/nfrastack/container-laravel:(image_tag)
-docker.io/nfrastack/laravel:(image_tag)
+ghcr.io/nfrastack/container-wordpress:(image_tag)
+docker.io/nfrastack/wordpress:(image_tag)
 ```
 
 Image tag syntax is:
@@ -55,9 +55,9 @@ Image tag syntax is:
 
 Example:
 
-`docker.io/nfrastack/container-laravel:latest` or
+`docker.io/nfrastack/container-wordpress:latest` or
 
-`ghcr.io/nfrastack/container-laravel:1.0-php84-alpine`
+`ghcr.io/nfrastack/container-wordpress:1.0-php84-alpine`
 
 * `latest` will be the most recent commit
 
@@ -172,8 +172,8 @@ wp-cli <argument>
 
 ## References
 
-* <https://laravel.net/>
-* <https://github.com/laravel-helpdesk/laravel/wiki/Installation-Guide>
+* <https://wordpress.net/>
+* <https://github.com/wordpress-helpdesk/wordpress/wiki/Installation-Guide>
 
 ## License
 
