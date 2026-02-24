@@ -18,20 +18,20 @@ LABEL \
         org.opencontainers.image.licenses="MIT"
 
 ENV \
-    PHP_ENABLE_CREATE_SAMPLE_PHP=FALSE \
-    PHP_MODULE_ENABLE_EXIF=TRUE \
-    PHP_MODULE_ENABLE_GD=TRUE \
-    PHP_MODULE_ENABLE_IGBINARY=TRUE \
-    PHP_MODULE_ENABLE_IMAGICK=TRUE \
-    PHP_MODULE_ENABLE_MYSQLI=TRUE \
-    PHP_MODULE_ENABLE_REDIS=TRUE \
-    PHP_MODULE_ENABLE_SHMOP=TRUE \
-    PHP_MODULE_ENABLE_SIMPLEXML=TRUE \
-    PHP_MODULE_ENABLE_XML=TRUE \
-    PHP_MODULE_ENABLE_XMLREADER=TRUE \
-    PHP_MODULE_ENABLE_ZIP=TRUE \
-    NGINX_WEBROOT="/www/wordpress" \
-    NGINX_SITE_ENABLED="wordpress" \
+    #PHP_ENABLE_CREATE_SAMPLE_PHP=FALSE \
+    #PHP_MODULE_ENABLE_EXIF=TRUE \
+    #PHP_MODULE_ENABLE_GD=TRUE \
+    #PHP_MODULE_ENABLE_IGBINARY=TRUE \
+    #PHP_MODULE_ENABLE_IMAGICK=TRUE \
+    #PHP_MODULE_ENABLE_MYSQLI=TRUE \
+    #PHP_MODULE_ENABLE_REDIS=TRUE \
+    #PHP_MODULE_ENABLE_SHMOP=TRUE \
+    #PHP_MODULE_ENABLE_SIMPLEXML=TRUE \
+    #PHP_MODULE_ENABLE_XML=TRUE \
+    #PHP_MODULE_ENABLE_XMLREADER=TRUE \
+    #PHP_MODULE_ENABLE_ZIP=TRUE \
+    #NGINX_WEBROOT="/www/wordpress" \
+    #NGINX_SITE_ENABLED="wordpress" \
     IMAGE_NAME="nfrastack/wordpress" \
     IMAGE_REPO_URL="https://github.com/nfrastack/container-wordpress/"
 
@@ -40,10 +40,27 @@ COPY LICENSE /usr/src/container/LICENSE
 COPY README.md /usr/src/container/README.md
 
 RUN echo "" && \
-    WORDPRESS_RUN_DEPS=" \
-                            xmlstarlet \
-                         " \
-                         && \
+    BUILD_ENV=" \
+                PHP_ENABLE_CREATE_SAMPLE_PHP=FALSE \
+                PHP_MODULE_ENABLE_EXIF=TRUE \
+                PHP_MODULE_ENABLE_GD=TRUE \
+                PHP_MODULE_ENABLE_IGBINARY=TRUE \
+                PHP_MODULE_ENABLE_IMAGICK=TRUE \
+                PHP_MODULE_ENABLE_MYSQLI=TRUE \
+                PHP_MODULE_ENABLE_REDIS=TRUE \
+                PHP_MODULE_ENABLE_SHMOP=TRUE \
+                PHP_MODULE_ENABLE_SIMPLEXML=TRUE \
+                PHP_MODULE_ENABLE_XML=TRUE \
+                PHP_MODULE_ENABLE_XMLREADER=TRUE \
+                PHP_MODULE_ENABLE_ZIP=TRUE \
+                NGINX_WEBROOT=/www/wordpress \
+                NGINX_SITE_ENABLED=wordpress \
+              " && \
+    \
+    WORDPRESS_RUN_DEPS_ALPIME=" \
+                                xmlstarlet \
+                              " \
+                              && \
     \
     source /container/base/functions/container/build && \
     container_build_log && \

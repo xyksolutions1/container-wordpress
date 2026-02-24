@@ -1,7 +1,7 @@
-## 5.9.0pre 2025-10-02 <dave at tiredofit dot ca>
+## 5.9.0 2026-02-24 <code at nfastack dot com>
 
-   ### Changed
-     - Switch to nfrastack/nginx-php-fpm base image
+   ### Added
+      - Switch to nfrastack/container-nginx-php-fpm:8.x base image
 
 
 ## 5.8.99 2025-10-02 <dave at tiredofit dot ca>
@@ -301,7 +301,7 @@ Add EOL Notice and deprecate image
 
 ## 3.4 2017-04-07 <dave at tiredofit dot ca>
 
-* Rebase Source Tree 
+* Rebase Source Tree
 
 ## 3.3 2017-03-29 <dave at tiredofit dot ca>
 
@@ -325,7 +325,7 @@ Add EOL Notice and deprecate image
 
 ## 2.1 2017-01-28 <dave at tiredofit dot ca>
 
-* Added Nginx Rewrite Rules to support SimpleSAMLPHP 
+* Added Nginx Rewrite Rules to support SimpleSAMLPHP
 * Added php7-ldap, openssl
 * Removed Built in Redis Configuration - use external source from now on.
 
