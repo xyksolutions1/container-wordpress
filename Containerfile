@@ -18,20 +18,6 @@ LABEL \
         org.opencontainers.image.licenses="MIT"
 
 ENV \
-    #PHP_ENABLE_CREATE_SAMPLE_PHP=FALSE \
-    #PHP_MODULE_ENABLE_EXIF=TRUE \
-    #PHP_MODULE_ENABLE_GD=TRUE \
-    #PHP_MODULE_ENABLE_IGBINARY=TRUE \
-    #PHP_MODULE_ENABLE_IMAGICK=TRUE \
-    #PHP_MODULE_ENABLE_MYSQLI=TRUE \
-    #PHP_MODULE_ENABLE_REDIS=TRUE \
-    #PHP_MODULE_ENABLE_SHMOP=TRUE \
-    #PHP_MODULE_ENABLE_SIMPLEXML=TRUE \
-    #PHP_MODULE_ENABLE_XML=TRUE \
-    #PHP_MODULE_ENABLE_XMLREADER=TRUE \
-    #PHP_MODULE_ENABLE_ZIP=TRUE \
-    #NGINX_WEBROOT="/www/wordpress" \
-    #NGINX_SITE_ENABLED="wordpress" \
     IMAGE_NAME="nfrastack/wordpress" \
     IMAGE_REPO_URL="https://github.com/nfrastack/container-wordpress/"
 
@@ -41,20 +27,22 @@ COPY README.md /usr/src/container/README.md
 
 RUN echo "" && \
     BUILD_ENV=" \
-                PHP_ENABLE_CREATE_SAMPLE_PHP=FALSE \
-                PHP_MODULE_ENABLE_EXIF=TRUE \
-                PHP_MODULE_ENABLE_GD=TRUE \
-                PHP_MODULE_ENABLE_IGBINARY=TRUE \
-                PHP_MODULE_ENABLE_IMAGICK=TRUE \
-                PHP_MODULE_ENABLE_MYSQLI=TRUE \
-                PHP_MODULE_ENABLE_REDIS=TRUE \
-                PHP_MODULE_ENABLE_SHMOP=TRUE \
-                PHP_MODULE_ENABLE_SIMPLEXML=TRUE \
-                PHP_MODULE_ENABLE_XML=TRUE \
-                PHP_MODULE_ENABLE_XMLREADER=TRUE \
-                PHP_MODULE_ENABLE_ZIP=TRUE \
-                NGINX_WEBROOT=/www/wordpress \
-                NGINX_SITE_ENABLED=wordpress \
+                10-nginx/NGINX_WEBROOT=/www/wordpress \
+                10-nginx/NGINX_SITE_ENABLED=wordpress \
+                10-nginx/NGINX_INDEX_FILE=index.php \
+                10-nginx/NGINX_CREATE_SAMPLE_HTML=FALSE \
+                20-php-fpm/PHP_ENABLE_CREATE_SAMPLE_PHP=FALSE \
+                20-php-fpm/PHP_MODULE_ENABLE_EXIF=TRUE \
+                20-php-fpm/PHP_MODULE_ENABLE_GD=TRUE \
+                20-php-fpm/PHP_MODULE_ENABLE_IGBINARY=TRUE \
+                20-php-fpm/PHP_MODULE_ENABLE_IMAGICK=TRUE \
+                20-php-fpm/PHP_MODULE_ENABLE_MYSQLI=TRUE \
+                20-php-fpm/PHP_MODULE_ENABLE_REDIS=TRUE \
+                20-php-fpm/PHP_MODULE_ENABLE_SHMOP=TRUE \
+                20-php-fpm/PHP_MODULE_ENABLE_SIMPLEXML=TRUE \
+                20-php-fpm/PHP_MODULE_ENABLE_XML=TRUE \
+                20-php-fpm/PHP_MODULE_ENABLE_XMLREADER=TRUE \
+                20-php-fpm/PHP_MODULE_ENABLE_ZIP=TRUE \
               " && \
     \
     WORDPRESS_RUN_DEPS_ALPIME=" \
