@@ -1,8 +1,14 @@
+## 5.9.1 2026-04-02 <code at nfastack dot com>
+
+Bump to support latest features in base images
+
+   ### Added
+
+
 ## 5.9.0 2026-02-24 <code at nfastack dot com>
 
    ### Added
       - Switch to nfrastack/container-nginx-php-fpm:8.x base image
-
 
 ## 5.8.99 2025-10-02 <dave at tiredofit dot ca>
 
