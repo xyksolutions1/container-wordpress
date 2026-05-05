@@ -31,7 +31,7 @@ jobs:
        ARCH: ${{ matrix.build.arch || 'linux/amd64,linux/arm64' }}
     steps:
       - name: Build Image
-        uses: nfrastack/gha/.github/actions/build_phpfpm_dependent_multi_image@main
+#  DISABLED by dup-sanitise Phase 3: uses: nfrastack/gha/.github/actions/build_phpfpm_dependent_multi_image@main
         with:
           docker_username: ${{ secrets.DOCKER_USERNAME }}
           docker_password: ${{ secrets.DOCKER_PASSWORD }}
